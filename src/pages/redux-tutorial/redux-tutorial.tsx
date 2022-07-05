@@ -10,6 +10,7 @@ const ReduxTutorial: React.FC<Props> = (props) => {
     return (
         <div className={styles.reduxTutorialRoot}>
             <ReduxOld />
+
             <ReduxNew />
         </div>
     );
