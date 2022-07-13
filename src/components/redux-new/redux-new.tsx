@@ -7,6 +7,7 @@ interface Props {}
 const ReduxNew: React.FC<Props> = (props) => {
     return (
         <div className={styles.reduxNewRoot}>
+            <h1>New redux</h1>
             <button>Add</button>
             <div>Counter</div>
             <button>Remove</button>
