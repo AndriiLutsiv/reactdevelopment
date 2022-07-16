@@ -1,6 +1,5 @@
 .reduxOldRoot {
-    width: 500px;
-    height: 500px;
+    width: 350px;
     background: rgb(158, 158, 158);
 }
 
@@ -10,4 +9,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.box1 {
+    background: rgb(203, 241, 203);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.box2 {
+    background: rgb(203, 241, 203);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.box3 {
+    background: rgb(203, 241, 203);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.box3item {
+    display: flex;
 }
