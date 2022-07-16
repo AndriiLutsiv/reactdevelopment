@@ -9,22 +9,19 @@ import {
     LoadingPayload,
     LoadingActionType,
 } from "./types";
+import { Action, ActionCreator, Dispatch } from "redux";
 
-export const decrementAction = (
-    payload: DecrementPayload
-): DecrementActionType => ({
+export const decrementAction: ActionCreator<Action> = (payload: DecrementPayload): DecrementActionType => ({
     type: DECREMENT_BY,
     payload: payload,
 });
 
-export const incrementAction = (
-    payload: IncrementPayload
-): IncrementActionType => ({
+export const incrementAction: ActionCreator<Action> = (payload: IncrementPayload): IncrementActionType => ({
     type: INCREMENT_BY,
     payload: payload,
 });
 
-export const loadingAction = (payload: LoadingPayload): LoadingActionType => ({
+export const loadingAction: ActionCreator<Action> = (payload: LoadingPayload): LoadingActionType => ({
     type: LOADING,
     payload: payload,
 });
