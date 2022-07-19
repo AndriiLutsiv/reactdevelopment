@@ -32,3 +32,10 @@
 .box3item {
     display: flex;
 }
+
+.box1_title,
+.box2_title,
+.box3_title {
+    font-weight: 700;
+    margin-right: 20px;
+}
