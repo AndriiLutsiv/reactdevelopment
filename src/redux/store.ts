@@ -1,17 +1,13 @@
 import { createStore, compose, applyMiddleware } from "redux";
-import { combineReducers } from "redux";
-import applicationReducer from "./applicationReducer/reducer";
 import thunk from "redux-thunk";
-import { ApplicationState } from "./applicationReducer/types";
+import { rootSaga } from "./rootSaga";
+import { rootReducer } from "./rootReducer";
+import createSagaMiddleware from "redux-saga";
 
-export interface RootState {
-    applicationReducer: ApplicationState;
-}
+const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
-    combineReducers<RootState>({
-        applicationReducer,
-    }),
-    applyMiddleware(thunk)
-);
+const store = createStore(rootReducer, applyMiddleware(thunk, sagaMiddleware));
+
+sagaMiddleware.run(rootSaga);
+
 export default store;
