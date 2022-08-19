@@ -1,8 +1,5 @@
 import { takeEvery, put } from "redux-saga/effects";
-import {
-  INCREMENT_SAGA_BY,
-  DECREMENT_SAGA_BY,
-} from "../applicationReducer/types";
+import {} from "../applicationReducer/types";
 import {
   incrementSagaAction,
   decrementAction,
@@ -10,6 +7,7 @@ import {
 } from "../applicationReducer/actions";
 
 function* workerAddSaga(data: { type: string; data: number }) {
+  console.log("workerAddSaga", data);
   yield put(incrementSagaAction({ incrementValue: data.data }));
 }
 
@@ -18,6 +16,6 @@ function* workerRemoveSaga(data: { type: string; data: number }) {
 }
 
 export function* watchCounterSaga() {
-  yield takeEvery("INCR", workerAddSaga);
-  yield takeEvery("DECR", workerRemoveSaga);
+  yield takeEvery("INCR_REQUEST", workerAddSaga);
+  yield takeEvery("DECR_REQUEST", workerRemoveSaga);
 }

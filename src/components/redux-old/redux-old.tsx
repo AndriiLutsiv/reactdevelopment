@@ -6,14 +6,10 @@ import { Dispatch, Action } from "redux";
 import {
   decrementAction,
   incrementAction,
-  incrementSagaAction,
-  decrementSagaAction,
 } from "../../redux/applicationReducer/actions";
 import {
   IncrementPayload,
   DecrementPayload,
-  IncrementSagaPayload,
-  DecrementSagaPayload,
 } from "../../redux/applicationReducer/types";
 import { Spinner } from "../spinner";
 import {
@@ -22,7 +18,7 @@ import {
 } from "../../redux/applicationReducer/thunks";
 import { ThunkDispatch } from "redux-thunk";
 import { addValue, subtractValue } from "../../constants";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
 
 interface StateProps {
   counterValue: number;
@@ -92,14 +88,15 @@ const ReduxOld: React.FC<Props> = (props) => {
   };
 
   const fetchPeopleHandler = () => {
-    fetchPeople({ type: "GET_PEOPLE" });
+    fetchPeople({ type: "GET_PEOPLE_REQUEST" });
   };
 
   const clearPeopleHandler = () => {};
 
-  const handleAdd2 = () => disptach({ type: "INCR", data: addValue });
+  const handleAdd2 = () => disptach({ type: "INCR_REQUEST", data: addValue });
 
-  const handleRemove2 = () => disptach({ type: "DECR", data: subtractValue });
+  const handleRemove2 = () =>
+    disptach({ type: "DECR_REQUEST", data: subtractValue });
 
   return (
     <div className={styles.reduxOldRoot}>
